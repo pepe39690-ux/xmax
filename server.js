@@ -2,7 +2,6 @@ import express from "express";
 import multer from "multer";
 import cors from "cors";
 import Replicate from "replicate";
-import path from "path";
 
 const app = express();
 app.use(cors());
@@ -37,7 +36,6 @@ app.post("/upload", upload.single("photo"), async (req, res) => {
       avant: imageUrl,
       apres: output.url
     });
-
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: "Erreur IA" });
